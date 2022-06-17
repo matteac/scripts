@@ -42,6 +42,7 @@ def main():
         time.sleep(1)
         print(i+1)
 
+    #Do stuff here
     gui.click(x=300, y=300)
     exit()
 
