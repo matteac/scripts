@@ -1,3 +1,4 @@
+#!/bin/sh
 xinput list
 
 echo -e "\nEnter device id:"
