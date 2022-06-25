@@ -1,13 +1,19 @@
 #!/bin/sh
+
+nodeVersion=$(curl https://nodejs.org/en/download/ | grep -m 1 'LTS')
+nodeVersion=${nodeVersion##*"LTS Version:"}
+nodeVersion=${nodeVersion##*"<strong>"}
+nodeVersion=${nodeVersion%%"</strong>"*}
+nodeVersion="v"$nodeVersion
+
 cd /tmp
 
-#if you want to install other version change the link below
-wget https://nodejs.org/dist/v16.15.0/node-v16.15.0-linux-x64.tar.xz
+wget https://nodejs.org/dist/$nodeVersion/node-$nodeVersion-linux-x64.tar.xz
 
-tar -xf node-v16.15.0-linux-x64.tar.xz
-sudo cp -r ./node-v16.15.0-linux-x64/{bin,include,lib,share} /usr/
+tar -xf node-$nodeVersion-linux-x64.tar.xz
+sudo cp -r ./node-$nodeVersion-linux-x64/{bin,include,lib,share} /usr/
 
-sudo npm install npm@latest -g
+sudo npm install npm@latest --location=global
 
 node --version
 npm --version
