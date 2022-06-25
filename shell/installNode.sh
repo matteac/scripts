@@ -10,7 +10,7 @@ cd /tmp
 wget https://nodejs.org/dist/$nodeVersion/node-$nodeVersion-linux-x64.tar.xz
 
 tar -xvf ./node-$nodeVersion-linux-x64.tar.xz
-sudo cp -r ./node-$nodeVersion-linux-x64/{bin,include,lib,share} /usr/
+sudo cp -rv ./node-$nodeVersion-linux-x64/{bin,include,lib,share} /usr/
 
 sudo npm install npm@latest --location=global
 
